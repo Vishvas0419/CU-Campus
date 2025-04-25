@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" href="outlets.css" /> -->
+    <style>
+      /* Container for cards */
+.card-container {
+    display: flex;
+    /* flex-wrap: nowrap; Prevents cards from wrapping */
+    overflow-y: auto;  /*Allows horizontal scrolling if needed  */
+    gap: 1rem; /* Adds space between cards */
+    justify-content: flex-start; /* Aligns cards to the start */
+    padding: 1rem; /* Optional: adds padding around the container */
+  }
+  
+  /* Card style */
+  .card {
+    flex: 0 0 auto; /* Prevents cards from stretching */
+    width: 300px; /* Sets a fixed width for each card */
+    box-sizing: border-box; /* Ensures padding and border are included in the width and height */
+    margin-bottom: 1rem; /* Adds space below each card */
+    display: flex;
+    /* flex-direction: column; */
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensures image covers the entire area */
+  }
+  
+  .card-body {
+    flex-grow: 1; /* Allows the card body to take up remaining space */
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between; /* Distributes content evenly within the card body */
+  }
+  
+  .card-title {
+    margin-bottom: 0.5rem; /* Adds space below the title */
+  }
+  
+  .card-text {
+    margin-top: auto; /* Pushes the text to the bottom of the card body */
+    font-style: italic;
+  }
+  
+      .scroll-container {
+        display: flex;
+        /* flex-wrap: nowrap; */
+        /* overflow-x: auto; */
+        scrollbar-width: none;
+      }
+      .card {
+        min-width: 300px; /* Set a minimum width for cards */
+        margin-right: 16px; /* Space between cards */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container my-4">
+      <div class="row scroll-container">
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://media.licdn.com/dms/image/D4D22AQFl3zxqSVvEMw/feedshare-shrink_800/0/1693324921681?e=2147483647&v=beta&t=Inslt73pAV0P4xOOhIz0NoKlOQQ0Cxo20zBHZs3ebLU"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Chai Vyanjan</h5>
+              <p class="card-text">
+                <i>Good friends and great coffee make the perfect blend.</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://samosaexpress.co.in/wp-content/uploads/2023/05/cropped-samosa-logo.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">The Samosa Express</h5>
+              <p class="card-text">
+                <i>A life without a companion is like samosa without chutney</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUhHWkzY1f6UGsn_KliPtP5rfWyBG-3qoDpw&s"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sip Stop</h5>
+              <p class="card-text">
+                <i>In need of some chill vibes and a cold drink...</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5VHscYUbsZwOf56Gf7b8VG305I6YW5Jd0Q&s"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Holy Scoop Ice Cream</h5>
+              <p class="card-text"><i>Savor the flavor of happiness!</i></p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5a74702ce45a7cd601df944b/41f0b38a-52c5-439f-ba22-8504d3ba209f/Barista+logo-+white.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Barista</h5>
+              <p class="card-text">
+                <i
+                  >"Without my coffee in a day, I'm just like a dried-up piece
+                  of roast goat." - Johann Sebastian Bach</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0558/6413/1764/files/Subway_Logo_Design_History_Evolution_8_1024x1024.jpg?v=1693499821"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Subway</h5>
+              <p class="card-text">
+                <i
+                  >Sit back, relax, Eat Fresh and savor every bite of these
+                  mouthwatering Subway dishes.</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://logodix.com/logo/395941.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Grab N Go</h5>
+              <p class="card-text">
+                <i>Cheers to good health and a glass full of nutrients!</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/projects/404/7c858b71148485.Y3JvcCwyMzcwLDE4NTQsNDA0LDA.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Indian Chaat Bhandar</h5>
+              <p class="card-text">
+                <i
+                  >“Spicing up your life with a plateful of Chat Papdi
+                  goodness.”</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://cdn.freebiesupply.com/images/large/2x/baskin-robbins-logo-png-transparent.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Baskin Robbins</h5>
+              <p class="card-text">
+                <i>Sweet dreams are made of ice cream. - Eurythmics</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://thumbs.dreamstime.com/b/print-228569018.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Punjab 13</h5>
+              <p class="card-text">
+                <i>Nothing brings people together like good food.</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://thumbs.dreamstime.com/b/takeaway-coffee-cup-lid-graphic-modern-icon-plastic-paper-drink-logo-white-background-hot-beverage-90434936.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Bev Cafe</h5>
+              <p class="card-text"><i>"Espresso yourself at the cafe."</i></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col">
+        <div class="card">
+          <img
+            src="https://cdn.vectorstock.com/i/500p/75/56/asian-food-banner-minimal-geometric-japanese-vector-51327556.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">China Box</h5>
+            <p class="card-text">
+              <i
+                >“Truth smells like Chinese food and sweat.” —Nicholson
+                Baker</i
+              >
+            </p>
+          </div>
+        </div>
+      </ -->
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://cdn.vectorstock.com/i/500p/75/56/asian-food-banner-minimal-geometric-japanese-vector-51327556.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">China Box</h5>
+              <p class="card-text">
+                <i
+                  >“Truth smells like Chinese food and sweat.” —Nicholson
+                  Baker</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://lh3.googleusercontent.com/8WB4ylzk5EpEAMxzW1iXvM2tLq1huG4ALL9HJ7xEWRDqj_2VjF0iGMwOeBoSlF3ecXoAed7myIXSPj7q32DRvZDYLvs"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Sher E Punjab</h5>
+              <p class="card-text">
+                <i>In a relationship with naan and butter chicken !</i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://bsmedia.business-standard.com/_media/bs/img/article/2018-04/12/full/1523524483-499.jpg?im=FeatureCrop,size=(826,465)"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Venky's</h5>
+              <p class="card-text">
+                <i>"Chicken Crafted with Finest Ingredients"</i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEbYwV4acpvsDDFFh_VH1BqOVySI78VdiDg&s"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">La Pino'z Pizza</h5>
+              <p class="card-text">
+                <i
+                  >"don’t listen to people who tell you you can’t eat a whole
+                  pizza, you don’t need that kind of negativity in your life"</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://thumbs.dreamstime.com/b/healthy-food-logo-round-linear-fork-leafs-green-background-eps-161215973.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Healthy Wave</h5>
+              <p class="card-text"><i>"Greens, gains, and glory!"</i></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://i.pinimg.com/originals/28/f5/51/28f5512d2970479dd2042800f20dee6f.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">South Circle</h5>
+              <p class="card-text">
+                <i
+                  >“Treat yourself to a symphony of flavors with South Indian
+                  cuisine!”</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://trademaklogos.s3.ap-south-1.amazonaws.com/5560046.jpeg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Golzza</h5>
+              <!-- <p class="card-text"><i>"Just Keep calm and eat golgappas !"</i></p> -->
+              <p class="card-text"><i>" Bhaiya or teekha kroo Na !"</i></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://img.freepik.com/premium-vector/paratha-food-vector-traditional_578838-41.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Parantha corner</h5>
+              <p class="card-text">
+                <i
+                  >"People who love to eat Prathas are the best people ever!"</i
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://mir-s3-cdn-cf.behance.net/projects/404/b838a1159579195.Y3JvcCwxNDk4LDExNzEsMCwxNjM.png"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Momos Hunter</h5>
+              <p class="card-text"><i>Bhaiya twentchy ke Momos kr do !</i></p>
+              <!-- <p class="card-text"><i>“Find someone who looks at you the way you look at momos!”</i></p> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card">
+            <img
+              src="https://scontent.fixc1-8.fna.fbcdn.net/v/t39.30808-6/275937023_101475785844375_4193108437306106048_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=nwAU270goh0Q7kNvgFcUYP-&_nc_ht=scontent.fixc1-8.fna&oh=00_AYD09qddrjNGgLeNrXG_hvwasWnZvH1Ih1vB5OaxfU3Sqg&oe=66AC6237"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title">Chai Nagri</h5>
+              <p class="card-text"><i>"Keep Calm and Drink Chai!"</i></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script CDN link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

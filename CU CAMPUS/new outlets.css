@@ -1,0 +1,15 @@
+.scroll-container {
+    max-height: 500px; /* Set a maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 1rem;
+}
+
+.card {
+    width: 100%; /* Full width in vertical layout */
+    margin-bottom: 16px; /* Space between cards */
+}
+
+.card-img-top {
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Ensures image covers the entire area */
+}
