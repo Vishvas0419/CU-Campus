@@ -22,16 +22,7 @@ CU CAMPUS is an all-in-one university website designed to simplify and enhance t
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Tools**: Bootstrap (for UI styling), LocalStorage (for temporary data handling)
-
-## 📁 Folder Structure
-CU-CAMPUS/ ├── index.html # Homepage with navigation ├── uHostel/ # Contains gatepass and approval pages ├── uCampus/ # Contains food menu, bill page, and mess schedule ├── css/ # Custom stylesheets ├── js/ # JavaScript functionality for each section └── assets/ # Images, icons, etc.
-
-
-## 📸 Screenshots
-
--![Screenshot (38)](https://github.com/user-attachments/assets/03ca1a68-06da-40a6-b422-328cbe8ffaa5)
-- ![Screenshot 2024-11-11 001920](https://github.com/user-attachments/assets/d2c19faa-bf9c-4acb-9350-4e0995a37226)
--![Screenshot 2024-11-11 001714](https://github.com/user-attachments/assets/b93c6300-5343-4f31-8914-522e1c851ebf)
+- 
 
 ## 🔮 Future Enhancements
 
