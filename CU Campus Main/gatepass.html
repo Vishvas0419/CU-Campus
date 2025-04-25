@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .profile-card .col-11{
+            line-height: 0.7;
+            flex: 1;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .profile-card {
+            background-color: #f8f8f8;
+            border-left: 4px solid #ff6b6b;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card .col-1{
+            flex: 0 0 auto;
+            width: auto;
+            padding-right: 15px;
+        }
+
+        .profile-card .row{
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-card h4 {
+            margin-bottom: 5px;
+        }
+
+        .profile-card .p{
+            margin: 0 0 5px;
+        }
+
+        .gatepass-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-left: 4px solid rgb(119, 201, 221) ;
+            margin-bottom: 20px;
+        
+        }
+
+
+        .gatepass-form h5 {
+            margin-bottom: 15px;
+            color: rgb(159, 37, 37);
+        }
+
+        .btn-submit {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 10%;
+            max-width: 200px;
+        }
+
+        .view-btn {
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            float: right;
+            border: none;
+        }
+
+
+        .profile-card img{
+            /* border: 2px solid black; */
+            border-radius: 50%;
+            margin-bottom: 0;
+            width: 70px;
+            height: 70px;
+        }
+        
+        .student {
+            margin-left:1px;
+        }
+
+        @media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+
+    /* .history-section{
+        width: 95%;
+    } */
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .profile-card, .gatepass-form {
+        margin: 0 0 15px 0;
+    }
+
+    .gatepass-form {
+        padding: 15px;
+    }
+
+    .btn-submit {
+        width: 100%;
+        
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col {
+        margin-bottom: 15px;
+    }
+
+    /* .history-section{
+        width:100%;
+        height: auto;
+        margin: 30px auto;
+        padding: 15px;
+    } */
+
+    .history-section table{
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-card .row {
+        flex-direction: row;
+    }
+
+    .profile-card .col-1,
+    .profile-card .col-11 {
+        width: auto;
+    }
+
+     .profile-card img {
+        max-width: 50px;
+        height: auto;
+    } 
+
+    .profile-card .col-11 {
+        font-size: 0.9em;
+    }
+
+    /* .view-btn {
+        
+        display: block;
+        margin: 10px auto;
+    } */
+
+    .gatepass-form input[type="date"],
+    .gatepass-form input[type="time"],
+    .gatepass-form select,
+    .gatepass-form input[type="text"] {
+        width: 100%;
+    }
+
+    .history-section table{
+        font-size: 0.8em;
+    }
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            /* border: 1px solid #ddd; */
+            padding: 8px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(245, 242, 242);
+        }
+        th {
+            background-color: rgb(151, 151, 151);
+        }
+
+        
+    .history-section{
+      
+        
+        width: 100%;
+        height: auto;
+        background-color:white;
+        margin: 50px auto ;
+        padding: 20px;
+        
+    }
+    
+    .history-section h5{
+        color: rgb(163, 32, 32);
+        
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="profile-card">
+            <div class="row d-flex align-items-center justify-content-between">
+                <div class="col-1 d-flex align-items-center ">
+            <img src="star programer.png"
+            width="70"
+            height="70"
+            class="student">
+        </div>
+        
+    <div class="col-11">
+            <h4>Hi, User</h4>
+            <p>User's Parent Name</p>
+            <p>Roll number</p>
+            <p>2023-CUP-BE-CSE</p>
+        </div>
+        
+        </div>
+        
+        </div>
+
+
+
+
+       
+           
+                <div class="gatepass-form">
+                    <h5><b>Gatepass Request</b></h5>
+                    <form id="gatepassForm">
+                        <div class="mb-3">
+                    <label for="applyDate"><b>Apply Date</b></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <input type="date" id="applyDate">
+                </div>
+
+                
+
+
+                
+                <div class="mb-3">
+                    <label for="apply"><b>Appy For</b></label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+            <input type="radio" name="leaveType" id="dayOut">
+            <label for="apply">Day Out</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+            <input type="radio"  name="leaveType" id="nightOut">
+           <label for="apply">Night Out</label> 
+           
+           
+                    
+</div>
+
+
+
+<div class="row mb-3">
+    
+
+    <div class="col">
+        <label for="outDate" ><b>Out Date</b></label>
+        <br>
+                    <input type="date" id="leaveFrom">
+                    
+
+    </div>
+
+    <div class="col">
+        <label for="outTime" ><b>Out Time(approx i.e.4:50 PM)</b></label>
+        <br>
+                    <input type="time" id="outTime" placeholder="Time(approximate)">
+                    
+
+                    
+    </div>
+
+
+    <div class="col">
+        <label for="inDate"><b>In Date</b></label>
+        <br>
+        <input type="date" id="leaveTo" >
+    </div>
+    
+    
+
+    <div class="col">
+        <label for="inTime" ><b>In Time(approx i.e.7:00 PM)</b></label>
+        <br>
+                    <input type="time" id="inTime" placeholder="Time(approximate)">
+
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="leaveReason"  id="reason"><b>Leave Required Reason</b></label>
+                    <select class="form-select" id="leaveReason">
+                        <option >Select Reason</option>
+                        <option value="Medical">Medical</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Family">Family</option>
+                        <option value="Emergency">Emergency</option>
+                    </select>
+
+</div>
+
+<div class="mb-3">
+    <label for="hostelName" ><b>Hostel Name</b></label>
+                    <select class="form-select" id="hostelName">
+                        <option >Select Hostel Name</option>
+                        <option value="Nightingle A">Nightingle A</option>
+                        <option value="Pie A">Pie A</option>
+                        <option value="Pie B">Pie B</option>
+                        <option value="Pie C">Pie C</option>
+                        <option value="Vasco">Vasco</option>
+                        <option value="Columbus">Columbus</option>
+                        <option value="Marco pol">Marco polo</option>
+                        <option value="Magellan">Magellan</option>
+                        <option value="Armstrong">Armstrong</option>
+                        <option value="Darwin B">Darwin B</option>
+                        <option value="IBN Battuta A">IBN Batutta A</option>
+                        <option value="IBN Battuta B">IBN Batutta B</option>
+
+                        <option value="Aristotle">Aristotle</option>
+                        <option value="Archimedes"> Archimedes</option>
+                        <option value="Franklin">Franklin</option>
+                        <option value="IBN Battuta C">IBN Battuta C</option>
+                        <option value="Nightingle B">Nightingle B</option>
+                        
+                    </select>
+
+</div>
+
+
+<label for="fname"><b>Approved By</b></label>
+<br>
+            <input type="text"  id="approvedBy" name="approvedBy"  placeholder="Warden Name">
+            <br><br>
+<button type="submit" class="btn-submit">Submit</button>
+            </form>
+    
+    </div>
+    </div>
+
+    <div class="history-section">
+        <h5><b>Gatepass History</b></h5>
+        <div id="historyList"></div>
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                <th>Leave Type</th>
+                <th>Leave From To</th>
+                <th>Reason</th>
+                <th>Approved By</th>
+            </tr>
+                
+            </thead>
+            <tbody id="table-data">
+    
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+    
+
+    
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+
+    let historyData = []; 
+
+document.getElementById('gatepassForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const leaveType = document.querySelector('input[name="leaveType"]:checked');
+    const leaveFrom = new Date(document.getElementById('leaveFrom').value);
+    const leaveTo = new Date(document.getElementById('leaveTo').value);
+    const reason = document.getElementById('leaveReason').value;
+    const approvedBy = document.getElementById('approvedBy').value;
+
+    
+    if (!leaveType || !leaveFrom || !leaveTo || !reason || !approvedBy) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    const leaveTypeValue = leaveType.nextElementSibling.textContent; 
+
+    const newEntry = {
+        leaveType: leaveTypeValue,
+        leaveFromTo: `${formatDate(leaveFrom)} to ${formatDate(leaveTo)}`,
+        reason: reason,
+        approvedBy: approvedBy,
+    };
+
+    historyData.push(newEntry);
+    updateTable();
+    this.reset();
+});
+
+function formatDate(date) {
+    return date.toLocaleString('en-US', {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+    });
+}
+
+function updateTable() {
+    const tableBody = document.getElementById('table-data');
+    tableBody.innerHTML = '';
+
+    historyData.forEach((item, index) => {
+        const row = tableBody.insertRow();
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${item.leaveType}</td>
+            <td>${item.leaveFromTo}</td>
+            <td>${item.reason}</td>
+            <td>${item.approvedBy}</td>
+        `;
+    });
+}
+</script>
+
+    </body>
+    </html>

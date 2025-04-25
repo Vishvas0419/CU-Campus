@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grab & Go Menu</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    #menu-text {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 36px;
+      margin-top: 10px;
+    }
+
+    .coffee-image {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .menu-items .list-group-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px;
+      margin-bottom: 10px;
+      border: 2px solid rgba(217, 217, 217, 0.769);
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+    }
+
+    .item-controls {
+      display: flex;
+      align-items: center;
+    }
+
+    .item-controls button {
+      margin: 0 5px;
+    }
+
+    #view-bill-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #view-bill-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://logodix.com/logo/395941.png" width="300px" height="200px" alt="Grab & Go Logo">
+    <h1 id="menu-text">MENU</h1>
+  </header>
+
+  <main class="container">
+    <div class="barista">
+      <ul class="list-group menu-items"></ul>
+      <button id="view-bill-btn" class="btn btn-success mt-3">View Bill</button>
+    </div>
+  </main>
+
+  <!-- Bootstrap JS and dependencies (Optional for Bootstrap components) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = [
+        { name: "Sugar Free Lassi", price: 70.00, count: 0, img: "https://www.veganricha.com/wp-content/uploads/2022/06/Baklava-Lassi-4538.jpg" },
+        { name: "Orange (250gm)", price: 70.00, count: 0, img: "https://www.healthifyme.com/blog/wp-content/uploads/2022/01/cropped-Orange-Juice-1-1.jpg" },
+        { name: "Vanilla Ice Cream (per scoop)", price: 39.00, count: 0, img: "https://handletheheat.com/wp-content/uploads/2021/06/homemade-vanilla-ice-cream.jpg" },
+        { name: "Black Currant Ice Cream (per scoop)", price: 39.00, count: 0, img: "https://leelalicious.com/wp-content/uploads/2016/11/Black-Currant-Cassis-Ice-Cream-Recipe.jpg" },
+        { name: "Fruit Overload Ice Cream (per scoop)", price: 89.00, count: 0, img: "https://dukaan.b-cdn.net/700x700/webp/531981/f4ba1aef-ec16-4129-bb0e-2bee11781d08.png" },
+        { name: "Strawberry Ice Cream (per scoop)", price: 89.00, count: 0, img: "https://detoxinista.com/wp-content/uploads/2021/07/strawberry-ice-cream-cone.jpg" },
+        { name: "Coconut Water", price: 89.00, count: 0, img: "https://5.imimg.com/data5/YY/GL/BF/SELLER-38188749/organic-coconut-water.jpg" }
+      ];
+
+      const menuContainer = document.querySelector('.menu-items');
+      const viewBillButton = document.getElementById('view-bill-btn');
+
+      // Function to render menu items with images
+      function renderMenu() {
+        menuContainer.innerHTML = ''; // Clear the current menu items
+        items.forEach((item, index) => {
+          const menuItem = document.createElement('li');
+          menuItem.classList.add('list-group-item', 'd-flex', 'align-items-center', 'justify-content-between');
+          const itemControlText = item.count > 0 ? `x ${item.count}` : '';
+
+          menuItem.innerHTML = `
+            <div class="d-flex align-items-center">
+              <img src="${item.img}" alt="${item.name}" class="coffee-image">
+              <div>
+                <h5>${item.name}</h5>
+                <p class="mb-0">₹${item.price.toFixed(2)}</p>
+              </div>
+            </div>
+            <div class="item-controls">
+              <button class="btn btn-danger btn-sm minus-btn" data-index="${index}" style="display: ${item.count > 0 ? 'inline-block' : 'none'}">-</button>
+              <span class="item-count">${itemControlText}</span>
+              <button class="btn btn-danger btn-sm plus-btn" data-index="${index}">Add +</button>
+            </div>
+          `;
+          menuContainer.appendChild(menuItem);
+        });
+      }
+
+      // Function to update the item count based on + and - clicks
+      function updateItemCount(index, increment) {
+        if (increment) {
+          items[index].count += 1;
+        } else {
+          if (items[index].count > 0) {
+            items[index].count -= 1;
+          }
+        }
+        renderMenu(); // Re-render menu to reflect changes
+      }
+
+      // Event delegation for + and - buttons
+      menuContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('plus-btn')) {
+          const index = e.target.getAttribute('data-index');
+          updateItemCount(index, true);
+        } else if (e.target.classList.contains('minus-btn')) {
+          const index = e.target.getAttribute('data-index');
+          updateItemCount(index, false);
+        }
+      });
+
+      // Function to generate the bill and redirect to the bill page
+      function generateBill() {
+        const billData = items.filter(item => item.count > 0).map(item => ({
+          name: item.name,
+          count: item.count,
+          price: item.price,
+          total: (item.price * item.count).toFixed(2)
+        }));
+
+        if (billData.length > 0) {
+          const total = billData.reduce((acc, item) => acc + parseFloat(item.total), 0).toFixed(2);
+          const bill = { items: billData, total: total };
+
+          // Store bill data in localStorage
+          localStorage.setItem('billData', JSON.stringify(bill));
+
+          // Redirect to the bill page
+          window.location.href = 'grabngo bill.html';
+        } else {
+          alert("No items added to the bill.");
+        }
+      }
+
+      // Event listener for viewing bill
+      viewBillButton.addEventListener('click', () => {
+        generateBill();
+      });
+
+      renderMenu(); // Initial render of menu
+    });
+  </script>
+</body>
+</html>

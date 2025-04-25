@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Chaat Bhandaar - Bill</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+    }
+
+    .bill-container {
+      padding: 20px;
+      border: 2px solid #ec2020;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .bill-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .total {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    #pay-now-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: block;
+    }
+
+    #pay-now-btn:hover {
+      background-color: #218838;
+    }
+
+    #back-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #back-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/7c858b71148485.Y3JvcCwyMzcwLDE4NTQsNDA0LDA.png" width="250px" height="180px" alt="Indian Chaat Bhandaar">
+    <br><br>
+    <h2>Your Bill</h2>
+  </header>
+
+  <main class="container">
+    <div class="bill-container">
+      <div id="bill-items"></div>
+      <div class="total" id="total-amount">Total: ₹0.00</div>
+      <center><button id="pay-now-btn">Pay Now</button></center>
+      <button id="back-btn" class="btn btn-primary">Back to Menu</button>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const billData = JSON.parse(localStorage.getItem('billData')); // Get the bill data from localStorage
+      const billItemsContainer = document.getElementById('bill-items');
+      const totalAmountElement = document.getElementById('total-amount');
+      let totalAmount = 0;
+
+      if (billData) {
+        // Generate bill items
+        for (let item in billData) {
+          const itemCount = billData[item].count;
+          const itemPrice = billData[item].price;
+          const itemTotal = itemCount * itemPrice;
+          totalAmount += itemTotal;
+
+          // Create a div for each bill item
+          const billItem = document.createElement('div');
+          billItem.classList.add('bill-item');
+          billItem.innerHTML = `
+            <span>${item} (x${itemCount})</span>
+            <span>₹${itemTotal.toFixed(2)}</span>
+          `;
+          billItemsContainer.appendChild(billItem);
+        }
+
+        // Update total amount
+        totalAmountElement.innerText = `Total: ₹${totalAmount.toFixed(2)}`;
+      } else {
+        billItemsContainer.innerHTML = '<p>No items found in the bill.</p>';
+      }
+
+      // Event listener for Pay Now button
+      document.getElementById('pay-now-btn').addEventListener('click', () => {
+        alert('Payment processing... (this is just a placeholder)');
+        localStorage.removeItem('billData'); // Clear the bill data after payment
+        // Optionally redirect to another page after payment
+        // window.location.href = 'payment_success.html';
+      });
+
+      // Event listener for back to menu button
+      document.getElementById('back-btn').addEventListener('click', () => {
+        window.location.href = 'indian backup.html'; // Redirect back to menu
+      });
+    });
+  </script>
+</body>
+</html>

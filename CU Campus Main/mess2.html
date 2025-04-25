@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel Mess Meal Timings</title>
+  <script src="https://kit.fontawesome.com/42e456a0a1.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .mess-container {
+      max-width: 1200px; /* Increased the width */
+      margin: 40px auto;
+      padding: 25px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .icon-heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+      color: #004e99;
+    }
+
+    .icon-heading i {
+      margin-right: 10px;
+      color: #004e99;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      color: #004e99;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      table-layout: auto;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 18px;
+      text-align: center;
+      font-size: 18px; 
+    }
+
+    th {
+      background-color: #004e99;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    td {
+      background-color: #f9f9f9;
+      font-size: 16px;
+      transition: background-color 0.3s ease; 
+    }
+
+    tr:hover td {
+      background-color: #e0e0e0; 
+    }
+
+    tbody tr:nth-child(odd) td {
+      background-color: #f1f1f1;
+    }
+
+    @media screen and (max-width: 768px) {
+      th, td {
+        padding: 12px;
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      th, td {
+        padding: 8px;
+        font-size: 14px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      td:before {
+        content: attr(data-label);
+        flex: 1;
+        font-weight: bold;
+        color: #004e99;
+        text-align: left;
+        padding-right: 10px;
+      }
+
+      td:last-child {
+        border-bottom: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="mess-container">
+  <div class="icon-heading">
+    <i class="fas fa-utensils"></i>
+    <span>Mess Meal Timings</span>
+  </div>
+
+  <div class="image-container">
+    <img src="WhatsApp Image 2024-08-28 at 7.28.04 PM.jpeg" alt="Mess Timings Image">
+  </div>
+
+  <h2>Hostel Mess Meal Timings</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Meal</th>
+        <th>Working Days</th>
+        <th>Holidays</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Meal">Breakfast</td>
+        <td data-label="Working Days">07:30 AM – 08:45 AM (All messes)<br>09:10 AM – 10:00 AM for Darwin & IBN - A Mess (C.S.E. 3rd & 5th Semester)</td>
+        <td data-label="Holidays">08:00 AM – 09:30 AM (All messes)</td>
+      </tr>
+      <tr>
+        <td data-label="Meal">Lunch</td>
+        <td data-label="Working Days">12:00 PM – 02:00 PM (All messes)<br>12:00 PM – 02:30 PM for Darwin & IBN - A Mess</td>
+        <td data-label="Holidays">12:30 PM – 02:30 PM (All messes)</td>
+      </tr>
+      <tr>
+        <td data-label="Meal">Snacks</td>
+        <td data-label="Working Days">04:00 PM – 05:00 PM (Magellan - Boys, Darwin Boys, IBN B - Girls)<br>04:30 PM – 05:15 PM for all other messes</td>
+        <td data-label="Holidays">05:00 PM – 05:45 PM (All messes)</td>
+      </tr>
+      <tr>
+        <td data-label="Meal">Dinner</td>
+        <td data-label="Working Days">07:30 PM – 09:00 PM (All messes)<br>09:20 PM – 10:30 PM for Darwin & IBN - A Mess (C.S.E. 3rd & 5th Semester)</td>
+        <td data-label="Holidays">07:30 PM – 09:00 PM (All messes)</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

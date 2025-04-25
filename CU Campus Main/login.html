@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chitkara University</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="login">
+        <div class="logo">
+            <img src="Chitkara black logo.png" alt="Chitkara Logo" height="50px">
+        </div>
+        <div class="email">
+            <form id="loginForm">
+                <fieldset>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required><br>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="toggle-password" id="togglePassword">Show Password</span>
+                </fieldset>
+                <input type="submit" value="Login" id="loginButton">
+                <div class="message" id="message"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        const form = document.getElementById('loginForm');
+        const messageElement = document.getElementById('message');
+        const togglePasswordElement = document.getElementById('togglePassword');
+        const passwordElement = document.getElementById('password');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            const username = document.getElementById('username').value;
+            const password = passwordElement.value;
+
+            if (username === '' || password === '') {
+                messageElement.textContent = 'Please fill in both fields.';
+                return;
+            }
+
+            if (username === 'admin' && password === 'password123') {
+                messageElement.textContent = 'Login successful! Redirecting...';
+                setTimeout(() => {
+                    window.location.href = "check.html"; 
+                }, 2000); 
+            } else {
+                messageElement.textContent = 'Invalid username or password.';
+            }
+        });
+
+        togglePasswordElement.addEventListener('click', function () {
+            const type = passwordElement.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordElement.setAttribute('type', type);
+            togglePasswordElement.textContent = type === 'password' ? 'Show Password' : 'Hide Password';
+        });
+    </script>
+</body>
+
+</html>

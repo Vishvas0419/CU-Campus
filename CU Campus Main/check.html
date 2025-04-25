@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CU Campus</title>
+  <!-- <link rel="stylesheet" href="index.css"> -->
+  <script src="https://kit.fontawesome.com/42e456a0a1.js" crossorigin="anonymous"></script>
+  <!-- Internal CSS -->
+  <style>
+    * {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  height: 1000px;
+  background-color: #efefef;
+}
+
+.header {
+  width: 100%;
+  background-color: #fcf9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 73px;
+  margin-bottom: 18px;
+  border: 2px solid rgb(244, 236, 236);
+  position: fixed;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  padding: 0 0px;
+}
+
+.logo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+ul {
+  display: flex;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+ul li {
+  margin: 10px;
+}
+
+ul li:hover {
+  color: red;
+  font-weight: bold;
+}
+
+
+.outlets {
+  padding-top: 100px;
+  padding-left: 10px;
+}
+
+
+.events {
+  background-color: #fcf9f9;
+  height: ;
+  //width: 100%;
+  margin: 20px;
+
+}
+
+.events2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.events-text-box {
+  /* border: 2px solid black; */
+}
+
+#events-text {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+}
+
+.mySlides {
+  display: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.slideshow-container {
+  margin: 40px;
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #ea1010;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #faf8f8;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px
+  }
+}
+
+
+.card {
+  padding: 30px;
+  background-color: #fcf9f9;
+}
+
+.outlets-section {
+  margin-bottom: 20px;
+}
+
+.slideshow-container {
+  border: 4px solid rgb(54, 53, 53);
+  border-radius: 4px;
+  /* box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3); */
+  /* box-shadow: 7px 7px 5px rgba(183, 54, 54, 0.3); */
+  transition: box-shadow 0.3s ease;
+}
+
+.slideshow-container:hover {
+  /* box-shadow: 10px 10px 10px rgba(207, 2, 2, 0.5); */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f1ebeb;
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+
+
+
+    .scroll-container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+
+    }
+
+    .card {
+      min-width: 300px;
+      margin-right: 16px;
+
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 1rem;
+      justify-content: flex-start;
+      padding: 1rem;
+
+    }
+
+    .card {
+      flex: 0 0 auto;
+      width: 200px;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      b
+    }
+
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .card-title {
+      margin-bottom: 0.5rem;
+      font-size: 18px;
+    }
+
+    .card-text {
+      margin-top: auto;
+      font-style: italic;
+      font-size: 13px;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-color: #f1ebeb;
+      transform: scale(1.05);
+      transition: transform 0.2s;
+    }
+
+    .card {
+      border-radius: 20px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 4px 0;
+    }
+    .alumni-box{
+      //border: 2px solid red;
+      margin: 20px;
+      display: flex;
+      background-color: #fcf9f9;
+    }
+    .alumni-photo{
+      padding: 20px;
+      
+    }
+    .alumni-text{
+      padding:20px;
+    }
+    .anirudh{
+      padding-right: 70px;
+      padding-bottom: 30px;
+    }
+    .star-alumni{
+      padding-bottom: 5px;
+      color: red;
+      font-style: bold;
+    }
+    .footer{
+      //display: flex;
+      background-color: black;
+    }
+    .footer-logo{
+      padding: 20px;
+      height: 20%;
+      width: 20%;
+    }
+    .AboutUs{
+      padding-left: 20px;
+      padding-right: 60px;
+      padding-bottom: 60px;
+      color: #f1ebeb;
+      font-size: 10px;
+    }
+    .mess-box{
+      margin: 20px;
+      background-color: #fcf9f9;;
+    }
+    #mess-text{
+      padding: 20px;
+      font-size: 25px;
+      font-style:bold;
+
+      /* border: 2px solid black; */
+    }
+    .mess{
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .mess-menue{
+      border: 4px solid black;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .header-nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: #fcf9f9;
+        border-top: 1px solid #ccc;
+      }
+
+      .header-nav ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+    a {
+    color: inherit; 
+}
+a {
+    text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+    .alumni-box {
+        flex-direction: column;
+    }
+    .alumni-text {
+        padding: 10px; 
+    }
+    .alumni-photo {
+        margin-top: 10px; 
+    }
+    .alumni-picture {
+        height: 150px; 
+    }
+}
+@media only screen and (max-width: 768px) {
+   
+    .mess-box {
+        padding: 10px; 
+    }
+    .mess-menue {
+        width: 100%; 
+        height: auto; 
+    }
+}
+@media only screen and (max-width: 768px) {
+    .footer {
+        flex-direction: column; 
+    }
+    .footer-logo {
+        margin-bottom: 10px; 
+    }
+    .AboutUs {
+        font-size: 12px; 
+        padding: 10px; 
+    }
+}
+footer {
+text-align: center;}
+
+.footer-container {
+background-color: #000001;
+display: flex;}
+
+.footer-container a {
+color: #F5F6F7;
+padding-top: 20px;
+/* padding: 42px 16px; */
+text-decoration: none;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bold;
+font-size: medium;}
+
+.footer-left {
+margin-right: auto}
+
+.fa:hover {
+color: #45405F;}
+
+.footer-icons {
+justify-content: space-between;
+padding: 16px 64px 0px 0px}
+
+.footer-icons ul {
+list-style-type: none;}
+
+.footer-icons li {
+display: inline-block;}
+
+.footer-right {
+margin-left: auto}
+
+.copyright 
+{background-color: #F5F6F7;
+overflow: hidden;}
+.display {
+  border: 2px solid rgb(239, 232, 232);
+  margin: 20px;
+  background-color: #fcf9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px; 
+}
+
+.display-box {
+  margin: 0;
+  height: 100%; 
+}
+
+
+video {
+  max-width: 100%;
+  height: 100%;
+  width: 100%; 
+  padding: 10px;
+}
+
+.reorder{
+  margin: 20px;
+  border: 2px solid rgb(239, 232, 232);
+  background-color: #fcf9f9;
+}
+.order-again {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      
+
+      max-width: 300px; 
+      margin: 20px auto; 
+    }
+
+    .order-again img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .order-again h3 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .order-again p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .order-again button {
+      padding: 10px 20px;
+      background-color: #db3636;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .order-again button:hover {
+  background-color: #ff4d4d;
+n  }
+
+    @media screen and (max-width: 768px) {
+      .order-again {
+        max-width: 100%;
+      }
+    }
+    .welcome{
+      margin: 20px;
+  border: 2px solid rgb(239, 232, 232);
+  background-color: #fcf9f9;
+    }
+    .welcome-container {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+    }
+
+    .welcome-container .profile-icon {
+      margin-right: 10px;
+    }
+
+    .welcome-container .welcome-text {
+      font-size: 16px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .welcome-container .balance-container {
+      background-image: linear-gradient(to right, #c12525, #c12525);
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NavBar -->
+  <div class="main">
+    <div class="header">
+      <div class="header-nav">
+        <div class="logo">
+          <img src="Chitkara black logo.png" alt="Chitkara" height="50px">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <ul>
+          <li class="home"><i class="fa-solid fa-house"></i> Home</li>
+          <a href="gatepass.html"><li class="gatepass"><i class="fa-solid fa-door-open"></i> Gatepass</li></a>
+          <a href="backup2.html"><li class="tuckshop"><i class="fa-solid fa-shop"></i> Outlets</li></a>
+           <a href="options.html"><li class="complaint"><i class="fa-solid fa-phone"></i> Complaint</li></a>
+          <a href="mess2.html"><li class="mess"><i class="fa-solid fa-utensils"></i> Mess</li></a>
+          <a href="profile.html"><li class="settings"><i class="fa-solid fa-gear"></i> Settings</li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- Outlets Scroll Bar -->
+  <section class="outlets-section">
+    <div class="outlets">
+      <div class="row scroll-container">
+        <a href="barista backup.html"><div class="col">
+          <div class="card">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/5a74702ce45a7cd601df944b/41f0b38a-52c5-439f-ba22-8504d3ba209f/Barista+logo-+white.png"
+              class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Barista</h5>
+              <p class="card-text">
+                <i>"Without my coffee in a day, I'm just like a dried-up piece
+                  of roast goat." - Johann Sebastian Bach</i>
+              </p>
+            </div>
+          </div>
+        </div></a>
+        <a href="subway backup.html"><div class="col">
+          <div class="card">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0558/6413/1764/files/Subway_Logo_Design_History_Evolution_8_1024x1024.jpg?v=1693499821"
+              class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Subway</h5>
+              <p class="card-text">
+                <i>Sit back, relax, Eat Fresh and savor every bite of these
+                  mouthwatering Subway dishes.</i>
+              </p>
+            </div>
+          </div>
+        </div></a>
+        <a href="grabngo backup.html"><div class="col">
+          <div class="card">
+            <img src="https://logodix.com/logo/395941.png" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Grab N Go</h5>
+              <p class="card-text">
+                <i>Cheers to good health and a glass full of nutrients!</i>
+              </p>
+            </div>
+          </div>
+        </div></a>
+        <a href="indian backup.html"><div class="col">
+          <div class="card">
+            <img src="https://mir-s3-cdn-cf.behance.net/projects/404/7c858b71148485.Y3JvcCwyMzcwLDE4NTQsNDA0LDA.png"
+              class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Indian Chaat Bhandar</h5>
+              <p class="card-text">
+                <i>“Spicing up your life with a plateful of Chat Papdi
+                  goodness.”</i>
+              </p>
+            </div>
+          </div>
+        </div></a>
+        <a href=""><div class="col">
+          <div class="card">
+            <img
+              src="https://media.licdn.com/dms/image/D4D22AQFl3zxqSVvEMw/feedshare-shrink_800/0/1693324921681?e=2147483647&v=beta&t=Inslt73pAV0P4xOOhIz0NoKlOQQ0Cxo20zBHZs3ebLU"
+              class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Chai Vyanjan</h5>
+              <p class="card-text">
+                <i>Good friends and great coffee make the perfect blend.</i>
+              </p>
+            </div>
+          </div>
+        </div></a>
+        <div class="col">
+          <div class="card">
+            <img src="https://samosaexpress.co.in/wp-content/uploads/2023/05/cropped-samosa-logo.png"
+              class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">The Samosa Express</h5>
+              <p class="card-text">
+                <i>A life without a companion is like samosa without chutney</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUhHWkzY1f6UGsn_KliPtP5rfWyBG-3qoDpw&s"
+              class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Sip Stop</h5>
+              <p class="card-text">
+                <i>In need of some chill vibes and a cold drink...</i>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf5VHscYUbsZwOf56Gf7b8VG305I6YW5Jd0Q&s"
+              class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">Monginis</h5>
+              <p class="card-text">
+                <i>A balanced diet is having a cake in each hand - Monginis</i>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="welcome">
+  <div class="welcome-container">
+    <i class="profile-icon fa fa-user"></i>
+    <span class="welcome-text">Welcome, Parvesh</span>
+    <div class="balance-container">
+      ₹1000
+      <span>Balance</span>
+    </div>
+  </div>
+</section>
+
+  <section class="reorder">
+  <div class="order-again">
+    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/7c858b71148485.Y3JvcCwyMzcwLDE4NTQsNDA0LDA.png" alt="Indian Chaat Bhandar Logo">
+    <h3>Indian Chaat Bhandar</h3>
+    <p>Rajpura</p>
+    <p>Quantity: 2</p>
+    <p>Total Amount: ₹78</p>
+    <button>Reorder</button>
+  </div>
+</section>
+
+  <!-- Star Coder -->
+  <section class="alumni">
+    <class class="alumni-box">
+      <class class="alumni-text">
+        <h2 class="anirudh"><h1 class="star-alumni">#StarProgramerOfTheWeek<h1>
+          Vivek Choudhary
+          B.E. (Computer Science Engineering), 2027
+          Python,Frontend dev. </h2>
+        <p class="anirudh-text">My journey at Chitkara University began in 2019 with a BE in CSE, and it was an incredibly transformative experience. The mentorship and support from the faculty were instrumental in building my skills as a software engineer. Today, I am working as a Python Developer at Orange Business Services, Gurugram. The strong foundation laid by Chitkara University, along with my family's support, made this possible.</p></class>
+      <class class="alumni-photo">
+        <img src="star programer.png" alt="" class="alumni-picture" height="200px" width="">
+      </class>
+    </class>
+  </section>
+
+
+  <!-- Alumni Box -->
+  <section class="alumni">
+    <class class="alumni-box">
+      <class class="alumni-text">
+        <h2 class="anirudh"><h1 class="star-alumni">#StarAlumniOfTheWeek<h1>
+          Anirudh Pratap Singh
+          B.E. (Computer Science Engineering), 2023
+          Python Developer, Orange Business Services, Gurugram</h2>
+        <p class="anirudh-text">My journey at Chitkara University began in 2019 with a BE in CSE, and it was an incredibly transformative experience. The mentorship and support from the faculty were instrumental in building my skills as a software engineer. Today, I am working as a Python Developer at Orange Business Services, Gurugram. The strong foundation laid by Chitkara University, along with my family's support, made this possible.</p></class>
+      <class class="alumni-photo">
+        <img src="star programer.png" alt="" class="alumni-picture" height="200px">
+      </class>
+    </class>
+  </section>
+
+  <section class="display">
+    <div class="display-box">
+      <video width="100%" height="auto" controls>
+        <source src="videoplayback.mp4" type="video/mp4">
+        <source src="videoplayback.mp4" type="video/ogg">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+
+
+  <!-- Events Section -->
+  <section class="events">
+    <h2 id="events-text"><i class="fa-solid fa-calendar-days"></i> Upcoming Events</h2>
+    <div class="events2">
+
+
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="event1.jpeg" height="400px">
+        </div>
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="event2.jpeg" height="300px">
+        </div>
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="event3.jpeg" height="300px">
+        </div>
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="event4.jpeg" height="300px">
+        </div>
+        <div class="mySlides fade">
+          <div class="numbertext">2 / 3</div>
+          <img src="event5.jpeg" height="300px">
+        </div>
+      </div>
+    </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+  </section>
+
+  <!-- Mess Box -->
+   <section class="mess-box">
+    <h2 id="mess-text"><i class="fa-solid fa-utensils"></i>   Mess Menu</h2>
+    <div class="mess">
+      <img src="WhatsApp Image 2024-08-29 at 21.00.06.jpeg" alt="" class="mess-menue" width="700px">
+    </div>
+   </section>
+
+
+
+  <!-- Footer -->
+  <section class="footer">
+    <div class="footer-logo">
+      <img src="Chitkara White Logo.png" alt="" class="footer-image" height="50px">
+      width="100px">
+    </div>
+    <div class="AboutUs">
+      <h3 class="footertext">
+        In the year 2002, Chitkara Educational Trust established its Punjab campus 30 kilometres from Chandigarh, on the Chandigarh–Patiala National Highway. In the year 2010 Chitkara University was established by the Punjab State Legislature under “The Chitkara University Act”.
+
+Chitkara University, the best university in Punjab is a government-recognized university with the right to confer degrees as per the Sections 2(f) and 22(1) of the UGC Act, 1956.
+
+The sprawling campus of the University is equidistant from Chandigarh, Mohali, Panchkula, Ambala and Patiala. The University offers multi-disciplinary programs, all of which are designed to be industry-relevant. As a result of this student-centric approach, Chitkara University is renowned as one of the best private universities in the North India region. From business management programs to programs in nursing and medical laboratory technologies; and from computer science, electronics and mechanical engineering programs, to hotel management and architecture—Chitkara University, Punjab is a veritable cornucopia of educational services.
+
+The Curriculum is delivered in spacious, amphitheatre-style classrooms—fitted with modern information and communication technology (ICT) equipment—and in well-equipped, modern laboratories. Additionally, students are encouraged—and provided relevant facilities—to participate in co-curricular and extra-curricular activities through various clubs and societies on the campus.
+
+It is because of the cumulative effect of an elaborate in-campus academic infrastructure; strong national and international collaborations; and a robust on-campus recruitment record—including regular recruitment by reputed blue-chip companies—that the University finds favor with national as well as international students.
+
+A healthy number of foreign students regularly study at the campus and number of them also visit on exchange programs, adding to the cultural diversity found on campus. The University in Punjab provides several opportunities for local students, too, to visit foreign universities and institutions on such exchange programs, thereby helping them receive invaluable international exposure.
+
+The University has at the centre of its philosophical core the commitment to excellence in education. It is the strong academic heritage of the University, and such firmness on matters of principles that has seen it grow from strength to strength in such a short span of time.
+      </h3>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-container">
+      
+      <div class="footer-icons">
+        <ul>
+          <li><a href="https://www.linkedin.com/in/nltkaczyk/" target="_blank"><i class="fa fa-linkedin fa-2x"></i></a></li>
+          <li><a href="https://www.instagram.com/n.l.tkaczyk/" target="_blank"><i class="fa fa-instagram fa-2x"></i></a></li>
+          <li><a href="https://www.youtube.com/@n.l.tkaczyk/" target="_blank"><i class="fa fa-youtube fa-2x"></i></a></li>
+      </ul>
+      </div>
+      
+    </div>
+
+  <div class="copyright">
+    <p style="color: #175d86;">
+      2024 &copy by Chitkara University
+    </p>
+  </div>
+</footer>
+
+  <!-- Slideshow Javascript -->
+  <script>
+    function toggleMenu() {
+      var menu = document.querySelector('.header-nav ul');
+      menu.classList.toggle('active');
+    }
+
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 4000); 
+    }
+    
+  </script>
+</body>
+</html>

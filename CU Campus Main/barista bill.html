@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+    }
+
+    .bill-container {
+      border: 2px solid #ec2020;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f9f9f9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    h3, h4 {
+      text-align: center;
+    }
+
+    .bill-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bill-items li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .pay-now {
+      display: block;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .pay-now:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Bill</h1>
+  </header>
+  <div class="bill-container">
+    <h3>Your Bill:</h3>
+    <ul class="bill-items" id="bill-items"></ul>
+    <h4 id="total"></h4>
+    <a href="#" class="pay-now">Pay Now</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Retrieve bill data from localStorage
+      const billData = JSON.parse(localStorage.getItem('billData')) || {};
+      const billItemsElement = document.getElementById('bill-items');
+      const totalElement = document.getElementById('total');
+
+      let total = 0;
+      for (const item of Object.keys(billData)) {
+        const itemTotal = billData[item].count * billData[item].price;
+        total += itemTotal;
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item} x ${billData[item].count} - ₹${itemTotal.toFixed(2)}`;
+        billItemsElement.appendChild(listItem);
+      }
+
+      totalElement.textContent = `Total: ₹${total.toFixed(2)}`;
+
+      // Pay Now button functionality (placeholder)
+      document.querySelector('.pay-now').addEventListener('click', () => {
+        alert('Payment processing... (this is just a placeholder)');
+        // Here you can add payment processing logic
+      });
+    });
+    
+  </script>
+</body>
+</html>

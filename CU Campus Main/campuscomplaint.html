@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Complaint Form</title>
+  <style>
+    #complaintForm{
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    ::placeholder{
+        font-family:'Times New Roman', Times, serif;
+    }
+    .container {
+        background-color: rgb(231, 231, 231);
+      border-radius: 2%;
+    }
+    .container h2{
+        color: rgb(215, 4, 4);
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body style="background-color: #f0f0f0;">
+  <div class="container mt-5">
+   <center> <h2>Campus Complaint Form</h2></center><br>
+    <form id="complaintForm">
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" required placeholder="Enter your full name">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="rollNo" class="form-label">Roll Number</label>
+          <input type="text" class="form-control" id="rollNo" required placeholder="Enter your roll number">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" required placeholder="Enter your email address">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="tel" class="form-control" id="phoneNumber" required placeholder="Enter your phone number">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="subgroup" class="form-label">Group (with subgroup)</label>
+          <input type="text" class="form-control" id="subgroup" required placeholder="Enter your group with subgroup">
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="branch" class="form-label">Branch</label>
+          <input type="text" class="form-control" id="branch" required placeholder="Enter your branch">
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="complaintType" class="form-label">Complaint Type</label>
+        <select class="form-select" id="complaintType" required>
+          <option value="">Select</option>
+          <option value="Academic">Academic issues (e.g. grading, disputes, teaching quality, course content)</option>
+          <option value="facilities">Campus facilities (e.g. cleanliness, maintenance, library, labs)</option>
+          <option value="Safety">Safety & Security (e.g. harassment, theft, campus safety concerns)</option>
+          <option value="faculty">Faculty complaint</option>
+          <option value="Health">Health Services (e.g. medical care)</option>
+          <option value="Transportation">Transportation (e.g. parking, accessibility)</option>
+          <option value="others">Technology Services (e.g. internet access, projector, computers)</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="complaint" class="form-label">Complaint</label>
+        <textarea class="form-control" id="complaint" rows="5" required placeholder="Describe your complaint in detail"></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-danger">Submit Complaint</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('complaintForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const rollNo = document.getElementById('rollNo').value;
+      const email = document.getElementById('email').value;
+      const phoneNumber = document.getElementById('phoneNumber').value;
+      const subgroup = document.getElementById('subgroup').value;
+      const branch = document.getElementById('branch').value;
+      const complaintType = document.getElementById('complaintType').value;
+      const complaint = document.getElementById('complaint').value;
+      const newComplaint = {
+        name,
+        rollNo,
+        email,
+        phoneNumber,
+        subgroup,
+        branch,
+        complaintType,
+        complaint,
+        formType: 'Campus Complaint'  
+      };
+
+      let complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+      complaints.push(newComplaint);
+      localStorage.setItem('complaints', JSON.stringify(complaints));
+
+      document.getElementById('complaintForm').reset();
+      alert('Complaint submitted successfully!');
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

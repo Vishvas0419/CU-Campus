@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Chaat Bhandaar Menu</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+    }
+    #menu-text{
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 100;
+    }
+
+    .food-image {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    #bill-container {
+      padding: 20px;
+      border: 2px solid #ec2020;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      display: none;
+    }
+
+    #view-bill-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #view-bill-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://mir-s3-cdn-cf.behance.net/projects/404/7c858b71148485.Y3JvcCwyMzcwLDE4NTQsNDA0LDA.png" width="250px" height="180px" alt="Indian Chaat Bhandaar">
+    <br> <br>
+    <h1 id="menu-text">Indian Chaat Bhandaar Menu</h1>
+  </header>
+
+  <main class="container mt-4">
+    <div class="indian">
+      <ul class="list-group menu-items"></ul>
+      <button id="view-bill-btn" class="btn btn-success">View Bill</button>
+      <div id="bill-container" class="mt-3"></div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = [
+        { name: "Veg Zinger Burger", price: 99.00, count: 0, img: "https://images.ctfassets.net/wtodlh47qxpt/6d2mlDFUZwhHU85PfPW23a/3c992643911d04bd50eea3ffd0c52954/D-K146-prod" },
+        { name: "White Sauce Pasta", price: 79.00, count: 0, img: "https://www.vegrecipesofindia.com/wp-content/uploads/2017/02/white-sauce-pasta-recipe-9.jpg" },
+        { name: "Classic Fries", price: 79.00, count: 0, img: "https://indianheartbeat.in/wp-content/uploads/2023/01/French-fries.png" },
+        { name: "Choco Burst", price: 80.00, count: 0, img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKj-pF0LUMoVSlVjvKsB7_VADyxxXp7--zMb7zsDY2bcusIoXk7SQOiIyiy_8KtrckDQY&usqp=CAU" },
+        { name: "Elaichi Tea", price: 20.00, count: 0, img: "https://www.sharmispassions.com/wp-content/uploads/2012/12/cardamom-tea4.jpg" },
+        { name: "Cheese Garlic Bread", price: 79.00, count: 0, img: "https://www.kuchpakrahahai.in/wp-content/uploads/2020/12/Dominos-style-cheesy-garlic-bread-recipe-e1625988541413.jpg" },
+        { name: "Masala Soda Lemonade", price: 79.00, count: 0, img: "https://i.ytimg.com/vi/3oe81a5K12c/maxresdefault.jpg" }
+      ];
+
+      const menuContainer = document.querySelector('.menu-items');
+      const billContainer = document.getElementById('bill-container');
+      const viewBillButton = document.getElementById('view-bill-btn');
+
+      // Function to render menu items with images
+      function renderMenu() {
+        menuContainer.innerHTML = ''; // Clear the current menu items
+        items.forEach((item, index) => {
+          const menuItem = document.createElement('li');
+          menuItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+          const itemControlText = item.count > 0 ? `x ${item.count} ` : '';
+          
+          menuItem.innerHTML = `
+            <img src="${item.img}" alt="${item.name}" class="food-image">
+            <span>${item.name} - ₹${item.price.toFixed(2)}</span>
+            <div class="item-controls">
+              <button class="btn btn-danger btn-sm minus-btn" data-index="${index}" style="display: ${item.count > 0 ? 'inline-block' : 'none'}">-</button>
+              <span class="item-count">${itemControlText}</span>
+              <button class="btn btn-danger btn-sm plus-btn" data-index="${index}">Add +</button>
+            </div>
+          `;
+          menuContainer.appendChild(menuItem);
+        });
+      }
+
+      // Function to update the item count
+      function updateItemCount(index, increment) {
+        if (increment) {
+          items[index].count += 1;
+        } else {
+          if (items[index].count > 0) {
+            items[index].count -= 1;
+          }
+        }
+        billContainer.style.display = 'none'; // Hide the bill
+        renderMenu(); // Re-render the menu
+      }
+
+      // Event delegation for + and - buttons
+      menuContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('plus-btn')) {
+          const index = e.target.getAttribute('data-index');
+          updateItemCount(index, true);
+        } else if (e.target.classList.contains('minus-btn')) {
+          const index = e.target.getAttribute('data-index');
+          updateItemCount(index, false);
+        }
+      });
+
+      // Function to generate the bill
+      function generateBill() {
+        let total = 0;
+        let billData = {};
+        let hasItems = false;
+
+        items.forEach(item => {
+          if (item.count > 0) {
+            const itemTotal = item.count * item.price;
+            total += itemTotal;
+            billData[item.name] = { count: item.count, price: item.price }; // Save data for next page
+            hasItems = true;
+          }
+        });
+
+        if (hasItems) {
+          localStorage.setItem('billData', JSON.stringify(billData)); // Store bill data
+          window.location.href = 'indian bill.html'; // Redirect to bill page
+        } else {
+          alert("No items in the bill.");
+        }
+      }
+
+      // Event listener for viewing bill
+      viewBillButton.addEventListener('click', () => {
+        generateBill(); // Generate bill on click
+      });
+
+      renderMenu(); // Initial render of menu
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subway Bill</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin-top: 50px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .bill-container {
+      padding: 20px;
+      border: 2px solid #ec2020;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .bill-container h3, .bill-container h4 {
+      text-align: center;
+    }
+
+    .bill-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bill-items li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bill-items li:last-child {
+      border-bottom: none;
+    }
+
+    .pay-now {
+      display: block;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .pay-now:hover {
+      background-color: #45a049;
+    }
+
+    #back-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #back-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Subway_2016_logo.svg/2560px-Subway_2016_logo.svg.png" width="400px" height="80px" alt="Subway">
+    <br><br>
+    <h1>Subway Bill</h1>
+  </header>
+
+  <div class="bill-container">
+    <h3>Your Bill:</h3>
+    <ul class="bill-items" id="bill-items"></ul>
+    <h4 id="total"></h4>
+    <a href="#" class="pay-now" id="pay-now-btn">Pay Now</a>
+
+    <button id="back-btn" class="btn btn-primary">Back to Menu</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Retrieve bill data from localStorage
+      const billData = JSON.parse(localStorage.getItem('billData')) || {};
+      const billItemsElement = document.getElementById('bill-items');
+      const totalElement = document.getElementById('total');
+      const payNowButton = document.getElementById('pay-now-btn');
+
+      let total = 0;
+
+      // Check if there are any items in the bill data
+      if (Object.keys(billData).length === 0) {
+        billItemsElement.innerHTML = '<li>No items selected.</li>';
+        totalElement.textContent = 'Total: ₹0.00';
+        payNowButton.style.display = 'none'; // Hide the Pay Now button
+      } else {
+        // Populate bill items
+        for (const [itemName, { count, price }] of Object.entries(billData)) {
+          const itemTotal = count * price; // Calculate total for the item
+          const listItem = document.createElement('li');
+          listItem.classList.add('d-flex', 'justify-content-between', 'w-100');
+          listItem.innerHTML = `
+            <span>${itemName} x ${count}</span>
+            <span>₹${itemTotal.toFixed(2)}</span>
+          `;
+          billItemsElement.appendChild(listItem);
+          total += itemTotal; // Accumulate total
+        }
+
+        // Display total
+        totalElement.textContent = `Total: ₹${total.toFixed(2)}`;
+      }
+
+      // Pay Now button functionality
+      payNowButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Payment processing... (this is just a placeholder)');
+        localStorage.removeItem('billData'); // Clear the bill data after payment
+      });
+
+      // Back to Menu button functionality
+      document.getElementById('back-btn').addEventListener('click', () => {
+        window.location.href = 'subway backup.html'; // Redirect back to menu
+      });
+    });
+  </script>
+</body>
+</html>

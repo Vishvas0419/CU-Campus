@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #aa0000;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #e53232;
+        }
+
+        .message {
+            color: rgb(105, 0, 0);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: auto;
+        }
+
+        .edit-profile {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <h2>Profile</h2>
+        <div class="profile-picture">
+            <img src="star programer.png" alt="Profile Picture" id="profile-picture">
+        </div>
+        <div class="profile-info">
+            <p id="name">Parvesh</p>
+            <p id="email">parvesh1011.be23@chitkara.edu.in</p>
+            <p id="major">Hostler</p>
+            <p id="bio">BE-CSE 2027</p>
+        </div>
+        <button class="edit-profile" id="edit-profile">Edit Profile</button>
+        <form id="profile-form" style="display: none;">
+            <div class="form-group">
+                <label for="name-input">Name:</label>
+                <input type="text" id="name-input" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email-input">Email:</label>
+                <input type="email" id="email-input" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="major-input">Hostler/Day scholar</label>
+                <input type="text" id="major-input" name="major" required>
+            </div>
+            <div class="form-group">
+                <label for="bio-input">Course/Department</label>
+                <textarea id="bio-input" name="bio" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="profile-picture-input">Profile Picture:</label>
+                <input type="file" id="profile-picture-input" name="profile-picture" accept="image/*">
+            </div>
+            <button type="submit">Save Changes</button>
+            <div class="message" id="message"></div>
+        </form>
+    </div>
+    <script>
+
+const form = document.getElementById('profile-form');
+const messageElement = document.getElementById('message');
+const editProfileButton = document.getElementById('edit-profile');
+const profileInfo = document.querySelector('.profile-info');
+const profilePicture = document.getElementById('profile-picture');
+
+window.onload = function () {
+    document.getElementById('name-input').value = "Parvesh";
+    document.getElementById('email-input').value = "parvesh1011.be23@chitkara.edu.in";
+    document.getElementById('major-input').value = "Hostler";
+    document.getElementById('bio-input').value = "BE-CSE 2027";
+};
+
+editProfileButton.addEventListener('click', function () {
+    if (form.style.display === "none") {
+        form.style.display = "block";
+        profileInfo.style.display = "none";
+        editProfileButton.textContent = "Cancel";
+    } else {
+        form.style.display = "none";
+        profileInfo.style.display = "block";
+        editProfileButton.textContent = "Edit Profile";
+        messageElement.textContent = ''; // Clear message
+    }
+});
+
+form.addEventListener('submit', function (event) {
+    event.preventDefault(); /
+
+
+    const name = document.getElementById('name-input').value;
+    const email = document.getElementById('email-input').value;
+    const major = document.getElementById('major-input').value;
+    const bio = document.getElementById('bio-input').value;
+    const profilePictureInput = document.getElementById('profile-picture-input');
+
+
+    document.getElementById('name').textContent = name;
+    document.getElementById('email').textContent = email;
+    document.getElementById('major').textContent = major;
+    document.getElementById('bio').textContent = bio;
+
+
+    if (profilePictureInput.files && profilePictureInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            profilePicture.src = e.target.result; 
+        };
+        reader.readAsDataURL(profilePictureInput.files[0]);
+    }
+
+    console.log("Profile updated:", { name, email, major, bio });
+    messageElement.textContent = 'Profile updated successfully!';
+
+    form.style.display = "none";
+    profileInfo.style.display = "block";
+    editProfileButton.textContent = "Edit Profile";
+});
+    </script>
+    </body>
+    </html>

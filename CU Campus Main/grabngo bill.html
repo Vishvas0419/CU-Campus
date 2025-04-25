@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grab & Go Bill</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin-top: 50px;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+    }
+
+    .bill-container {
+      padding: 20px;
+      border: 2px solid #ec2020;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .bill-container h3, .bill-container h4 {
+      text-align: center;
+    }
+
+    .bill-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bill-items li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .bill-items li:last-child {
+      border-bottom: none;
+    }
+
+    .pay-now {
+      display: block;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .pay-now:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 576px) {
+      .bill-container {
+        padding: 15px;
+      }
+
+      .bill-items li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .bill-items li span {
+        margin-bottom: 5px;
+      }
+    }
+
+    #back-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #back-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://logodix.com/logo/395941.png" width="200px" height="150px" alt="Grab & Go Logo">
+    <h1>Grab & Go Bill</h1>
+  </header>
+
+  <div class="bill-container">
+    <h3>Your Bill:</h3>
+    <ul class="bill-items" id="bill-items"></ul>
+    <h4 id="total"></h4>
+    <a href="#" class="pay-now" id="pay-now-btn">Pay Now</a>
+
+    <button id="back-btn" class="btn btn-primary">Back to Menu</button>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (Optional for Bootstrap components) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Retrieve bill data from localStorage
+      const billData = JSON.parse(localStorage.getItem('billData')) || {};
+      const billItemsElement = document.getElementById('bill-items');
+      const totalElement = document.getElementById('total');
+      const payNowButton = document.getElementById('pay-now-btn');
+
+      let total = 0;
+
+      // Populate bill items
+      billData.items.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.classList.add('d-flex', 'justify-content-between', 'w-100');
+        listItem.innerHTML = `
+          <span>${item.name} x ${item.count}</span>
+          <span>₹${item.total}</span>
+        `;
+        billItemsElement.appendChild(listItem);
+        total += parseFloat(item.total);
+      });
+
+      // Display total
+      totalElement.textContent = `Total: ₹${total.toFixed(2)}`;
+
+      // Pay Now button functionality
+      payNowButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Placeholder for payment processing
+        alert('Payment processing... (this is just a placeholder)');
+        // Clear the bill data after payment
+        localStorage.removeItem('billData');
+      });
+
+      // Back to Menu button functionality
+      document.getElementById('back-btn').addEventListener('click', () => {
+        window.location.href = 'grabngo backup.html'; // Redirect back to menu
+      });
+    });
+  </script>
+</body>
+</html>
