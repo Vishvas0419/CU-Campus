@@ -22,7 +22,6 @@ CU CAMPUS is an all-in-one university website designed to simplify and enhance t
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Tools**: Bootstrap (for UI styling), LocalStorage (for temporary data handling)
-- 
 
 ## 🔮 Future Enhancements
 
