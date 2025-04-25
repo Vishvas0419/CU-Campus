@@ -29,7 +29,9 @@ CU-CAMPUS/ ├── index.html # Homepage with navigation ├── uHostel/ # 
 
 ## 📸 Screenshots
 
-> *Add screenshots here showing the homepage, gatepass form, food order UI, etc.*
+-![Screenshot (38)](https://github.com/user-attachments/assets/03ca1a68-06da-40a6-b422-328cbe8ffaa5)
+- ![Screenshot 2024-11-11 001920](https://github.com/user-attachments/assets/d2c19faa-bf9c-4acb-9350-4e0995a37226)
+-![Screenshot 2024-11-11 001714](https://github.com/user-attachments/assets/b93c6300-5343-4f31-8914-522e1c851ebf)
 
 ## 🔮 Future Enhancements
 
@@ -37,9 +39,6 @@ CU-CAMPUS/ ├── index.html # Homepage with navigation ├── uHostel/ # 
 - Admin dashboard for gatepass and complaint management
 - Real-time order tracking system
 - Mobile app version of CU CAMPUS!
--![Screenshot (38)](https://github.com/user-attachments/assets/03ca1a68-06da-40a6-b422-328cbe8ffaa5)
-- ![Screenshot 2024-11-11 001920](https://github.com/user-attachments/assets/d2c19faa-bf9c-4acb-9350-4e0995a37226)
--![Screenshot 2024-11-11 001714](https://github.com/user-attachments/assets/b93c6300-5343-4f31-8914-522e1c851ebf)
 
 
 ## 📬 Contact
